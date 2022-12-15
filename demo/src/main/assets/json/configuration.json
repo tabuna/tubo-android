@@ -1,5 +1,6 @@
 {
   "settings": {
+    "enable-feature-x": true,
     "screenshots_enabled": true
   },
   "rules": [
@@ -16,19 +17,13 @@
     },
     {
       "patterns": [
-        "^$",
-        "^/$"
+        "/privacy$",
+        "/changelog$",
+        "/info$",
+        "/exp/m/settings$"
       ],
       "properties": {
-        "uri": "turbo://fragment/web/home",
-        "presentation": "replace_root"
-      }
-    },
-    {
-      "patterns": [
-        "/signin$"
-      ],
-      "properties": {
+        "presentation": "modal",
         "context": "modal",
         "uri": "turbo://fragment/web/modal",
         "pull_to_refresh_enabled": false
@@ -36,31 +31,34 @@
     },
     {
       "patterns": [
-        "/new$"
+        "/details$"
       ],
       "properties": {
-        "context": "modal",
-        "uri": "turbo://fragment/web/modal/sheet",
-        "pull_to_refresh_enabled": false
+        "actions": "details"
       }
     },
     {
       "patterns": [
-        "/numbers$"
+        "/friends$"
       ],
       "properties": {
-        "uri": "turbo://fragment/numbers",
-        "title": "Numbers"
+        "actions": "create"
       }
     },
     {
       "patterns": [
-        "/numbers/[0-9]+$"
+        "/edit"
       ],
       "properties": {
-        "uri": "turbo://fragment/numbers/sheet",
-        "title": "Number",
-        "description": "This is a native bottom sheet fragment"
+        "actions": "save"
+      }
+    },
+    {
+      "patterns": [
+        "/cases"
+      ],
+      "properties": {
+        "actions": "cases"
       }
     },
     {
@@ -70,6 +68,70 @@
       "properties": {
         "uri": "turbo://fragment/image_viewer"
       }
+    },
+    {
+      "patterns": [
+        "/lock$",
+        "/login$",
+        "/start$",
+        "/register$",
+        "/forgot-password$",
+        "/reset-password$",
+        "/begin$",
+        "/offline$",
+        "/lock-use-password$",
+        "/reminder$",
+        "/survey$",
+        "/email/verify$",
+        "/quiz$",
+        "/two-factor-challenge$",
+        "/user/confirm-password$",
+        "/user/confirmed-password-status$",
+        "/user/two-factor-qr-code$",
+
+        "/home$",
+        "/history$",
+        "/m/service$",
+        "/m/settings$",
+
+        "/experiments$"
+      ],
+      "properties": {
+        "navigation-bar": "hidden"
+      }
     }
-  ]
+  ],
+  "navigation": {
+    "hidden": [
+      "*/faq",
+      "*/settings/profile",
+      "*/settings/auto/*",
+      "*/settings/auto-turbo/*",
+      "*/settings/api",
+      "*/settings/invite",
+      "*/settings/import",
+      "*/settings/confidentiality",
+      "*/tracking/*",
+      "*/privacy",
+      "*/info/articles/*",
+      "*/changelog",
+      "*/achievements",
+      "*/friends",
+      "*/friends/*/info",
+      "*/info/*",
+      "*/statistics",
+      "*/emotion/*/cases",
+      "*/hashtag/*",
+      "*/attribute/*",
+      "*/emotion/*/info",
+      "*/reports/*",
+      "*/experiments/*",
+      "*/experiments",
+      "*/exp/m/settings",
+      "*/exp/m/settings/*",
+      "*/service/trends",
+      "*/hashtags",
+      "*/attributes"
+    ]
+  }
 }
