@@ -1,59 +1,24 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-android {
-    compileSdkVersion 33
-
-    defaultConfig {
-        applicationId "dev.hotwire.turbo.demo"
-        minSdkVersion 24
-        targetSdkVersion 33
-        versionCode 1
-        versionName "1.0"
-        vectorDrawables.useSupportLibrary = true
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-
-        debug {
-            debuggable true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20'
     }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-        debug.java.srcDirs += 'src/debug/kotlin'
-    }
-    namespace 'dev.hotwire.turbo.demo'
 }
 
-dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.browser:browser:1.4.0'
-    implementation 'com.github.bumptech.glide:glide:4.14.2'
-
-    implementation project(':turbo')
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
-repositories {
-    google()
-    mavenCentral()
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
