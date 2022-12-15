@@ -39,7 +39,7 @@ jobs:
         #  run: ./gradlew assembleRelease
 
       - name: Build Release
-        run: ./gradlew clean assemble -p
+        run: ./gradlew clean build -p demo -x test publish --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v3.1.1
